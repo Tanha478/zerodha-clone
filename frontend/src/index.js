@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Routes  } from "react-router-dom";
 import "./index.css";
 
 import HomePage from "./landing_page/home/HomePage";
