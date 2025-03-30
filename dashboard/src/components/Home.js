@@ -19,7 +19,7 @@ const Home = () => {
         setIsAuthenticated(true);
       } catch {
         setIsAuthenticated(false);
-       window.location.href = "http://localhost:3000/login"; // Redirect to login page if not authenticated
+       window.location.href = "https://zerodha-clone-frontend-ndqw.onrender.com/login"; // Redirect to login page if not authenticated
       }
     };
     

@@ -10,7 +10,7 @@ export default function Logout () {
       await axios.post("https://zerodha-clone-backend-bypc.onrender.com/logout", {}, { withCredentials: true });
 
       // Redirect to login page
-     window.location.href = "http://localhost:3000/login"; // Redirect to login page
+     window.location.href = "https://zerodha-clone-frontend-ndqw.onrender.com/login"; // Redirect to login page
     } catch (err) {
       console.error("Error during logout:", err);
     }
