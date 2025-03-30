@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       const response = await axios.post("https://zerodha-clone-backend-bypc.onrender.com/login", formData);
-      window.location.href = "http://localhost:3001";
+      window.location.href = "https://zerodha-clone-dashboard-fdei.onrender.com";
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
     }
