@@ -1,0 +1,16 @@
+# Node.js modules
+node_modules/
+
+# Environment variables
+.env
+*.dotenv
+
+# Log files
+*.log
+
+# Build outputs (optional)
+dist/
+build/
+
+# System files
+.DS_Store

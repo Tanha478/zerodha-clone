@@ -19,7 +19,7 @@ const Menu = () => {
 
   return (
     <div className="menu-container">
-      <img src="logo.png" style={{ width: "50px" }} />
+      <img src="logo.png" style={{ width: "50px" }} alt="Company Logo"/>
       <div className="menus">
         <ul>
           <li>
@@ -85,6 +85,17 @@ const Menu = () => {
             >
               <p className={selectedMenu === 6 ? activeMenuClass : menuClass}>
                 Apps
+              </p>
+            </Link>
+          </li>
+          <li>
+            <Link
+              style={{ textDecoration: "none" }}
+              to="/logout"
+              onClick={() => handleMenuClick(7)}
+            >
+              <p className={selectedMenu === 7 ? activeMenuClass : menuClass}>
+                Logout  
               </p>
             </Link>
           </li>

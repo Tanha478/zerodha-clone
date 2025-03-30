@@ -9,10 +9,13 @@ import AboutPage from "./landing_page/about/AboutPage";
 import ProductPage from "./landing_page/products/ProductsPage";
 import PricingPage from "./landing_page/pricing/PricingPage";
 import SupportPage from "./landing_page/support/SupportPage";
-
 import NotFound from "./landing_page/NotFound";
 import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
+import Login from "./landing_page/login/login";
+// import Dashboard from "./dashboard/Dashboard";
+// import DashboardApp from "./dashboard/Home.js";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -26,6 +29,11 @@ root.render(
       <Route path="/pricing" element={<PricingPage />} />
       <Route path="/support" element={<SupportPage />} />
       <Route path="*" element={<NotFound />} />
+      <Route path="/login" element={<Login />} />
+      {/* <Route path="/dashboard/*" element={<Dashboard />} /> */}
+      {/* <Route path="/dashboard" element={<DashboardApp />} /> */}
+
+
     </Routes>
     <Footer />
   </BrowserRouter>
