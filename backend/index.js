@@ -27,9 +27,7 @@ app.use(cors({
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-
-
-
+// Signup Route
 app.post("/signup", async (req, res) => {
   
   const { username, email, password } = req.body;
@@ -51,8 +49,6 @@ app.post("/signup", async (req, res) => {
 
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 
-    // res.status(201).send({ message: "User created successfully", token });
-    // res.status(201).send(`User created successfully: ${token}`);
     res.cookie("auth_token", token, { httpOnly: true, secure: false, sameSite: "Strict" }); 
     res.status(201).json({ message: "User created successfully" });
     
@@ -91,7 +87,6 @@ app.post("/login", async (req, res) => {
 // Logout route
 app.post("/logout", (req, res) => {
   try {
-    // Clear authentication token stored in cookies
     res.clearCookie("token", { httpOnly: true, sameSite: "None", secure: true });
 
     return res.status(200).json({ message: "Logout successful" });
@@ -100,21 +95,6 @@ app.post("/logout", (req, res) => {
     res.status(500).json({ message: "Server error during logout" });
   }
 });
-
-// const path = require("path");
-// app.use(express.static(path.join(__dirname, "client/build")));
-
-// // ✅ Serve `index.html` ONLY for unknown frontend routes
-// app.get("/", (req, res) => {
-//   res.send("✅ Server is running!");
-// });
-
-// app.get("*", (req, res) => {
-//   if (req.originalUrl.startsWith("/api")) {
-//     return res.status(404).json({ message: "API route not found" });
-//   }
-//   res.sendFile(path.join(__dirname, "client/build", "index.html"));
-// });
 
 app.get("/validateToken", (req, res) => {
   const token = req.cookies.auth_token;
@@ -153,8 +133,6 @@ app.post("/newOrder", async (req, res) => {
 
   res.send("Order saved!");
 });
-
-
 
 app.listen(PORT, () => {
   console.log("App started!");

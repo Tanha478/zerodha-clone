@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
-  // const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -15,8 +13,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3002/login", formData);
-      localStorage.setItem("token", response.data.token); // Save token to localStorage
+      const response = await axios.post("https://zerodha-clone-backend-bypc.onrender.com/login", formData);
       window.location.href = "http://localhost:3001";
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");

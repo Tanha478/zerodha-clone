@@ -7,7 +7,7 @@ export default function Logout () {
   const handleLogout = async () => {
     try {
       // Optional: Notify backend to clear cookies
-      await axios.post("http://localhost:3002/logout", {}, { withCredentials: true });
+      await axios.post("https://zerodha-clone-backend-bypc.onrender.com/logout", {}, { withCredentials: true });
 
       // Redirect to login page
      window.location.href = "http://localhost:3000/login"; // Redirect to login page

@@ -13,52 +13,6 @@ import Summary from "./Summary";
 
 
 
-// const Dashboard = () => {
-//   const navigate = useNavigate();
-//   const [isAuthenticated, setIsAuthenticated] = useState(null);
-
-//   useEffect(() => {
-//     const checkAuth = async () => {
-//       try {
-//         // Send a request to validate the token stored in the cookies
-//         await axios.get("http://localhost:3002/validateToken", { withCredentials: true });
-//         setIsAuthenticated(true);
-//       } catch {
-//         setIsAuthenticated(false);
-//         navigate("/login");
-//       }
-//     };
-
-//     checkAuth();
-//   }, [navigate]);
-
-//   if (isAuthenticated === null) {
-//     return <div>Loading...</div>;
-//   }
-
-
-
-    
-  //   const token = localStorage.getItem("token");
-
-  //   if (!token) {
-  //     navigate("/login"); // Redirect if no token
-  //   } else {
-  //     // Simulate token validation (replace with actual validation logic)
-  //     const isValid = true; // Replace with backend validation if needed
-  //     if (isValid) {
-  //       setIsAuthenticated(true);
-  //     } else {
-  //       localStorage.removeItem("token");
-  //       navigate("/login");
-  //     }
-  //   }
-  // }, [navigate]);
-
-  // if (isAuthenticated === null) {
-  //   // Show loading while checking authentication
-  //   return <div>Loading...</div>;
-  // }
 const Dashboard = () => {
   return (
     <div className="dashboard-container">

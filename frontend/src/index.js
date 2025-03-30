@@ -13,8 +13,6 @@ import NotFound from "./landing_page/NotFound";
 import Navbar from "./landing_page/Navbar";
 import Footer from "./landing_page/Footer";
 import Login from "./landing_page/login/login";
-// import Dashboard from "./dashboard/Dashboard";
-// import DashboardApp from "./dashboard/Home.js";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -30,10 +28,6 @@ root.render(
       <Route path="/support" element={<SupportPage />} />
       <Route path="*" element={<NotFound />} />
       <Route path="/login" element={<Login />} />
-      {/* <Route path="/dashboard/*" element={<Dashboard />} /> */}
-      {/* <Route path="/dashboard" element={<DashboardApp />} /> */}
-
-
     </Routes>
     <Footer />
   </BrowserRouter>

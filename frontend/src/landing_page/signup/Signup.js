@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-// import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [formData, setFormData] = useState({ username: "", email: "", password: "" });
   const [error, setError] = useState("");
-  // const navigate = useNavigate();
-
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -14,11 +11,9 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-  
+
     try {
-     
-      const response = await axios.post("http://localhost:3002/signup", formData, {
+      const response = await axios.post("https://zerodha-clone-backend-bypc.onrender.com/signup", formData, {
         withCredentials: true, 
         headers: { "Content-Type": "application/json" },
       });
@@ -29,9 +24,7 @@ const Signup = () => {
         setError(err.response?.data?.message || "Something went wrong");
       }
     };
-  
-  
-  
+ 
   return (
     <div className="signup-container"  >
       <h1 className="signup-title">Create an Account</h1>
@@ -69,6 +62,5 @@ const Signup = () => {
     </div>
   );
 };
-
 
 export default Signup;
