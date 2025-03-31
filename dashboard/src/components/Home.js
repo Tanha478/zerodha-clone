@@ -17,7 +17,8 @@ const Home = () => {
         // Send a request to validate the token stored in the cookies
         await axios.get("https://zerodha-clone-backend-bypc.onrender.com/validateToken", { withCredentials: true });
         setIsAuthenticated(true);
-      } catch {
+      } catch(error) {
+        console.error("Authentication check failed:", error);
         setIsAuthenticated(false);
        window.location.href = "https://zerodha-clone-frontend-ndqw.onrender.com/login"; // Redirect to login page if not authenticated
       }
