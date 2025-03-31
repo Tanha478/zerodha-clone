@@ -27,6 +27,12 @@ app.use(cors({
 }));
 
 app.use((req, res, next) => {
+  console.log("Incoming Request:", req.method, req.headers.origin);
+  next();
+});
+
+
+app.use((req, res, next) => {
   const allowedOrigins = ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com"];
   const origin = req.headers.origin;
   if (allowedOrigins.includes(origin)) {
