@@ -133,7 +133,7 @@ app.post("/login", async (req, res) => {
 
     // Generate a JWT token
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
-    res.cookie("auth_token", token, { httpOnly: true, secure: false, sameSite: "Strict" }); 
+    res.cookie("auth_token", token, { httpOnly: true, secure: true, sameSite: "none" ,  maxAge: 24 * 60 * 60 * 1000,  }); 
     res.status(200).json({ message: "Login successful" });
   } catch (error) {
     res.status(500).json({ message: "Something went wrong", error });
