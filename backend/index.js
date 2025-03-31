@@ -104,9 +104,10 @@ app.post("/signup", async (req, res) => {
     await newUser.save();
 
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
+    res.json({ token });
 console.log("Token generated:", token); // Logs the generated token for debugging
-    res.cookie("auth_token", token, { httpOnly: true, secure: false, sameSite: "Strict" }); 
-    res.status(201).json({ message: "User created successfully", token });
+    res.cookie("auth_token", token, { httpOnly: true, secure: true, sameSite: "none" }); 
+    res.status(201).json({ message: "User created successfully" });
     
   } catch (error) {
     console.error("Error during signup:", error); // Logs the error for debugging
