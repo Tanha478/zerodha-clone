@@ -19,7 +19,7 @@ const Signup = () => {
       });
   
        // Redirect user after successful signup
-       window.location.href = "https://zerodha-clone-dashboard-fdei.onrender.com";
+       window.location.href = "https://zerodha-clone-dashboard-fdei.onrender.com" ;
       } catch (err) {
         console.log(err);
         setError(err.response?.data?.message || "Something went wrong");
