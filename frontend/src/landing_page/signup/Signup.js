@@ -14,7 +14,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post("https://zerodha-clone-backend-bypc.onrender.com/signup", formData, {
-        withCredentials: true, 
+        credentials: "include", 
         headers: { "Content-Type": "application/json" },
       });
   

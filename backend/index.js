@@ -106,7 +106,7 @@ app.post("/signup", async (req, res) => {
 
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 console.log("Token generated:", token); // Logs the generated token for debugging
-    res.cookie("auth_token", token, { httpOnly: true, secure: true, sameSite: "none", maxAge: 24 * 60 * 60 * 1000, }); 
+    res.cookie("auth_token", token, { httpOnly: true, secure: true, sameSite: "none", maxAge: 24 * 60 * 60 * 1000, domain:'https://zerodha-clone-dashboard-fdei.onrender.com' }); 
     res.status(201).json({ message: "User created successfully" });
     
   } catch (error) {
