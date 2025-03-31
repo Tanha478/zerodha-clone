@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
   const allowedOrigins = ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com"];
-  const origin = req.headers.origin;
+  const origin = req.headers.origin || "https://zerodha-clone-frontend-ndqw.onrender.com";
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
