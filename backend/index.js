@@ -20,6 +20,7 @@ const app = express();
 
 app.use(cors({
   origin: ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com"],
+  optionsSuccessStatus: 200,
   credentials: true,
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type", "Authorization"]
@@ -32,7 +33,7 @@ app.options("*", (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", origin);
   }
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, X-Auth-Token , Origin,  Authorization");
   res.setHeader("Access-Control-Allow-Credentials", "true");
   res.send();
 });
