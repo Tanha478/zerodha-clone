@@ -20,10 +20,7 @@ const app = express();
 
 app.use(cors({
   origin: ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com"],
-  optionsSuccessStatus: 200,
   credentials: true,
-  methods: ["GET", "POST"],
-  allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
 app.use((req, res, next) => {
