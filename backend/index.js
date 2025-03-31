@@ -18,41 +18,46 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-// const allowedOrigins = [
-//   "https://zerodha-clone-frontend-ndqw.onrender.com",
-//   "https://zerodha-clone-dashboard-fdei.onrender.com",
-// ];
-// app.use(
-//   cors({
-//     origin: function (origin, callback) {
-//       // Allow requests from allowed origins or undefined (for tools like Postman)
-//       if (!origin || allowedOrigins.includes(origin)) {
-//         callback(null, origin);
-//       } else {
-//         callback(new Error("Not allowed by CORS"));
-//       }
-//     },
-//     credentials: true, // Ensure credentials are allowed
-//   })
-// );
+const allowedOrigins = [
+  "https://zerodha-clone-frontend-ndqw.onrender.com",
+  "https://zerodha-clone-dashboard-fdei.onrender.com",
+];
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow requests from allowed origins or undefined (for tools like Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, origin);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Ensure credentials are allowed
+  })
+);
 
-// app.options("*", (req, res) => {
-//   const origin = req.headers.origin;
-//   if (allowedOrigins.includes(origin)) {
-//     res.setHeader("Access-Control-Allow-Origin", origin);
-//     res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-//     res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//     res.setHeader("Access-Control-Allow-Credentials", "true");
-//     return res.sendStatus(200); // Preflight success
-//   }
-//   res.sendStatus(403); // Forbidden for unauthorized origins
-// });
+app.use((req, res, next) => {
+  console.log("Incoming Request:", req.method, req.headers.origin);
+  next();
+});
 
-// // Debugging middleware for logging incoming requests
-// app.use((req, res, next) => {
-//   console.log("Incoming Request:", req.method, req.headers.origin);
-//   next();
-// });
+app.options("*", (req, res) => {
+  const origin = req.headers.origin;
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    return res.sendStatus(200); // Preflight success
+  }
+  res.sendStatus(403); // Forbidden for unauthorized origins
+});
+
+// Debugging middleware for logging incoming requests
+app.use((req, res, next) => {
+  console.log("Incoming Request:", req.method, req.headers.origin);
+  next();
+});
 
 
 app.use(cors({
@@ -66,17 +71,17 @@ app.use((req, res, next) => {
 });
 
 
-app.use((req, res, next) => {
-  // const allowedOrigins = ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com"];
-  // const origin = req.headers.origin || "https://zerodha-clone-frontend-ndqw.onrender.com";
-  // if (allowedOrigins.includes(origin)) {
-    res.setHeader("Access-Control-Allow-Origin", "https://zerodha-clone-frontend-ndqw.onrender.com");
-  // }
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  next();
-});
+// app.use((req, res, next) => {
+//   // const allowedOrigins = ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com"];
+//   // const origin = req.headers.origin || "https://zerodha-clone-frontend-ndqw.onrender.com";
+//   // if (allowedOrigins.includes(origin)) {
+//     res.setHeader("Access-Control-Allow-Origin", "https://zerodha-clone-frontend-ndqw.onrender.com");
+//   // }
+//   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+//   res.setHeader("Access-Control-Allow-Credentials", "true");
+//   next();
+// });
 
 
 
