@@ -22,7 +22,6 @@ app.use(cors({
   origin: ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com"],
   credentials: true,
   methods: ["GET", "POST"],
-  optionsSuccessStatus: 200,
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
 
