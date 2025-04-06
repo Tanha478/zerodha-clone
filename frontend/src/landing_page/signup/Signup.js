@@ -13,13 +13,19 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://zerodha-clone-backend-bypc.onrender.com/signup", formData, {
-        credentials: "include", 
+      const response = await axios.post(
+        "https://zerodha-clone-backend-bypc.onrender.com/signup",
+
+        // "http://localhost:3002/signup",
+         formData, {
+          withCredentials: true ,                   
         headers: { "Content-Type": "application/json" },
       });
   
-       // Redirect user after successful signup
-      //  window.location.href = "https://zerodha-clone-dashboard-fdei.onrender.com" ;
+      //  Redirect user after successful signup
+       window.location.href = 
+       "https://zerodha-clone-dashboard-fdei.onrender.com" 
+      //  "http://localhost:3001/dashboard";
       } catch (err) {
         console.log(err);
         setError(err.response?.data?.message || "Something went wrong");

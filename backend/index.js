@@ -56,7 +56,9 @@ const app = express();
 
 
 app.use(cors({
-  origin: ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com", ],
+  origin: 
+  ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com", "http://localhost:3000" ],
+
   methods: ["GET", "POST", "OPTIONS"],
   credentials: true,
 }));
@@ -68,7 +70,7 @@ app.use((req, res, next) => {
 
 
 app.use((req, res, next) => {
-  const allowedOrigins = ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com "];
+  const allowedOrigins = ["https://zerodha-clone-frontend-ndqw.onrender.com", "https://zerodha-clone-dashboard-fdei.onrender.com " , "http://localhost:3000", "http://localhost:3001"];
   const origin = req.headers.origin || "https://zerodha-clone-frontend-ndqw.onrender.com";
   if (allowedOrigins.includes(origin)) {
     res.setHeader("Access-Control-Allow-Origin", origin);
@@ -106,7 +108,10 @@ app.post("/signup", async (req, res) => {
 
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 console.log("Token generated:", token); // Logs the generated token for debugging
-    res.cookie("auth_token", token, { httpOnly: true, secure: true, sameSite: "none", maxAge: 24 * 60 * 60 * 1000, domain:'https://zerodha-clone-dashboard-fdei.onrender.com' }); 
+    res.cookie("auth_token", token, { httpOnly: true, secure: true, sameSite: "None", maxAge: 24 * 60 * 60 * 1000
+      // 'https://zerodha-clone-dashboard-fdei.onrender.com' 
+      
+    }); 
     res.status(201).json({ message: "User created successfully" });
     
   } catch (error) {
@@ -144,7 +149,7 @@ app.post("/login", async (req, res) => {
 // Logout route
 app.post("/logout", (req, res) => {
   try {
-    res.clearCookie("token", { httpOnly: true, sameSite: "None", secure: true });
+    res.clearCookie("auth_token", { httpOnly: true, sameSite: "None", secure: true });
 
     return res.status(200).json({ message: "Logout successful" });
   } catch (error) {
@@ -154,7 +159,7 @@ app.post("/logout", (req, res) => {
 });
 
 app.get("/validateToken", (req, res) => {
-  const token = req.cookies.auth_token;
+  const token = req.cookies.auth_token; // Check both localStorage and cookies
   if (!token) {
     return res.status(401).json({ message: "Unauthorized" });
   }
