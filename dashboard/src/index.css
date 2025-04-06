@@ -257,7 +257,6 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* flex-direction: column;  */
 }
 
 .logo {
@@ -269,14 +268,9 @@ code {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  /* max-height: 80vh; 
-  overflow-y: auto;  */
-
 }
 
 .menus ul {
-  display: flex;
-  flex-direction: column;
   list-style-type: none;
 }
 
