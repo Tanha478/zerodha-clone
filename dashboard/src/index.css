@@ -873,3 +873,18 @@ hr {
 .logout-button:hover {
   background-color: #c82333;
 }
+
+
+@media (max-width: 768px) {
+  .topbar-container {
+    display: flex;
+    flex-direction: column;
+height: fit-content;
+  }
+  .home-container {
+    display: block;
+    width: 100%;
+    height: fit-content;
+  }
+
+}
