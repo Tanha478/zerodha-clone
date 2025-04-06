@@ -13,7 +13,10 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://zerodha-clone-backend-bypc.onrender.com/login", formData);
+      const response = await axios.post("https://zerodha-clone-backend-bypc.onrender.com/login", formData , {
+        withCredentials: true,
+        headers: { "Content-Type": "application/json" },
+      });
       window.location.href = "https://zerodha-clone-dashboard-fdei.onrender.com";
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
