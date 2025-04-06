@@ -28,7 +28,7 @@ function Navbar() {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <form className="d-flex" role="search">
-            <ul className="navbar-nav mb-lg-0 d-lg-none">
+            <ul className="navbar-nav mb-lg-0 ">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/signup">
                   Signup

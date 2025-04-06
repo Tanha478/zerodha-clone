@@ -3,6 +3,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes  } from "react-router-dom";
 import "./index.css";
 
+import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap styles are applied
+import "bootstrap/dist/js/bootstrap.bundle.min.js"; // Add this for JS functionality like toggler
+
 import HomePage from "./landing_page/home/HomePage";
 import Signup from "./landing_page/signup/Signup";
 import AboutPage from "./landing_page/about/AboutPage";
