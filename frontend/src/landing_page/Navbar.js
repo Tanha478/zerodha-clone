@@ -27,8 +27,8 @@ function Navbar() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <form className="d-flex" role="search">
-            <ul className="navbar-nav mb-lg-0">
+          {/* <form className="d-flex" role="search"> */}
+            <ul className="navbar-nav mb-lg-0 d-lg-none">
               <li className="nav-item">
                 <Link className="nav-link active" aria-current="page" to="/signup">
                   Signup
@@ -60,7 +60,7 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-          </form>
+          {/* </form> */}
         </div>
       </div>
     </nav>
